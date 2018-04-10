@@ -11,4 +11,8 @@ public interface IUserService {
     *   @param user 用户实体
     **/
     void insert(User user);
+
+    User getUserByUserId(String userId);
+
+    String login(String userId,String passwWord);
 }

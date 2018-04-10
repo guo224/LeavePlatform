@@ -4,19 +4,25 @@
 <mapper namespace="leave.mapper.UserMapper">
     <resultMap id = "UserMap" type="leave.model.object.User">
         <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
         <result property="name" column="name"/>
         <result property="studentCode" column="student_code"/>
         <result property="userType" column="user_type"/>
         <result property="sex" column="sex"/>
         <result property="mobileNum" column="mobile_num"/>
         <result property="password" column="password"/>
-        <result property="createDate" column="create_time"/>
+        <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="isDelete" column="Is_delete"/>
     </resultMap>
 
     <sql id="userColumns">
-       id,name,student_code,user_type,sex,mobile_num,password,create_time,update_time,Is_delete
+       id,user_id,name,student_code,user_type,sex,mobile_num,password,create_time,update_time,Is_delete
     </sql>
+    <select id="getUserByUserId" resultMap="UserMap">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user WHERE user_id=#{userId}
+    </select>
 
 </mapper>

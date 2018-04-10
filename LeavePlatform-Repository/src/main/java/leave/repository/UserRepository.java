@@ -8,5 +8,7 @@ import leave.model.object.User;
  */
 public interface UserRepository extends BaseRepository<User>{
 
+    User getUserByUserId(String userId);
+
 
 }

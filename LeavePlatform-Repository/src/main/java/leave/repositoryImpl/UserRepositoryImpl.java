@@ -35,4 +35,10 @@ public class UserRepositoryImpl implements UserRepository {
     public int delete(String id) {
         return 0;
     }
+
+    @Override
+    public User getUserByUserId(String userId) {
+      User user = userMapper.getUserByUserId(userId);
+      return user;
+    }
 }

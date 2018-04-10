@@ -9,8 +9,12 @@ import java.util.Date;
 public class User {
     //主键
     private String id;
+    //账号
+    private String userId;
+
     //用户名字
     private String name;
+
     //学号
     private String studentCode;
     //用户类型
@@ -23,8 +27,6 @@ public class User {
     private String password;
     //创建时间
     private Date createTime;
-    //最后修改时间
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -34,9 +36,9 @@ public class User {
     }
 
     private Date updateTime;
+
     //是否删除 0正常 1删除
     private Integer isDelete;
-
     public String getId() {
         return id;
     }
@@ -63,6 +65,15 @@ public class User {
 
     public Integer getUserType() {
         return userType;
+    }
+
+    //最后修改时间
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public void setUserType(Integer userType) {
