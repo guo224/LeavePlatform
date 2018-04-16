@@ -1,4 +1,5 @@
 function setCookie(field, value) {
+    alert("wqr")
     const cookie = $.cookie(field);
     if(null !== cookie){
         $.cookie(field, {expires : -1});
