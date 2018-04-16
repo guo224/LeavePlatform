@@ -5,6 +5,8 @@ import leave.model.object.User;
 import leave.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by 白嘿嘿黑 on 2018/3/28.
  */
@@ -40,5 +42,10 @@ public class UserRepositoryImpl implements UserRepository {
     public User getUserByUserId(String userId) {
       User user = userMapper.getUserByUserId(userId);
       return user;
+    }
+
+    @Override
+    public List<User> getAllTeacher() {
+         return userMapper.getAllTeacher();
     }
 }

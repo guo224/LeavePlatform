@@ -6,6 +6,8 @@ import leave.repository.UserRepository;
 import leave.util.BaseReturn;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by 白嘿嘿黑 on 2018/3/28.
  */
@@ -38,6 +40,16 @@ public class UserService implements IUserService {
        }
        return BaseReturn.getNormalMessage(user);
     }
+    public String getAllTeacher() {
+        List<User> user = userRepository.getAllTeacher();
+        if(user == null||user.size() == 0 ){
+            return BaseReturn.getEmptyMessage();
+        }
+        return BaseReturn.getNormalMessage(user);
+    }
+
+
+
 
 
 }

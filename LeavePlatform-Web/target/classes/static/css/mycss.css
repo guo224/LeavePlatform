@@ -1,7 +1,16 @@
 body {
     padding-top: 20px;
     padding-bottom: 40px;
-    /*background-color: #eee;*/
+    background-image: url(../images/v2-84ca043…_b.jpg);
+    /* width: 291px; */
+    /* height: 293px; */
+    /* width: 100%; */
+     /*height: 100px; */
+    background-size: 2000px 1200px;
+    background-report: no-report;
+    background-repeat: no-repeat;
+     background-size: 50% 50%;
+     position: absolute;
 }
 
 .forget{

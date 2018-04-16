@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <link href="../static/css/mycss.css" th:href="@{/css/myCSS.css}" rel="stylesheet" media="screen"/>
+    <script type="text/javascript" src="../static/js/jquery.cookie.js" th:src="@{/js/jquery.cookie.js}"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+    <script type="text/javascript" src="../static/js/cookie.js" th:src="@{/js/cookie.js}"></script>
+    <script type="text/javascript" src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+    <script type="text/javascript" src="../static/js/leave.js" th:src="@{/js/leave.js}"></script>
+</head>
+<body>
+<form id="leaveForm" method="post">
+    <legend>请假</legend>
+    <br>申请人姓名：<span id="currentUserName"></span></a></br>
+    <!--开始时间:<label><input type="text" id="startTime" class="form-control" placeholder="请输入开始时间"></label>-->
+    <!--<br>-->
+    <!--<label for="endTime" class="sr-only">结束时间</label>-->
+    <!--<input type="text" id="endTime" class="form-control" placeholder="请输入结束时间">-->
+    <label for="startTime" class="sr-only">开始时间</label>
+    <input type="text" id="startTime" class="form-control" placeholder="开始时间">
+    <label for="endTime" class="sr-only">结束时间</label>
+    <input type="text" id="endTime" class="form-control" placeholder="结束时间">
+    <br><label>审核人</label><select id = "teacherList"  name = "teacherList" class = "form-control">
+</select>>
+    <input type="text" id="submitId" class="form-control" placeholder="审核人Id">
+    <button id="submitButton" class="btn btn-default btn-primary" type="button">登录</button>
+    <button class="btn btn-default btn-info reset" type="reset">重置</button>
+
+
+</form>
+
+</body>
+</html>

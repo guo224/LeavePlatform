@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link href="../static/css/mycss.css" th:href="@{/css/mycss.css}" rel="stylesheet" media="screen"/>
+    <script type="text/javascript" src="../static/js/jquery-3.3.1.min.js" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script type="text/javascript" src="../static/js/jquery.cookie.js" th:src="@{/js/jquery.cookie.js}"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="../static/js/cookie.js" th:src="@{/js/cookie.js}"></script>
+    <script type="text/javascript" src="../static/js/login.js" th:src="@{/js/login.js}"></script>
+    <script type="text/javascript" src="../static/js/url.js" th:src="@{/js/url.js}"></script>
+    <title>学生请假系统设计 登陆</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">学生请假系统</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </nav>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-3">
+            <form id="loginForm" method="post">
+                <legend>登陆</legend>
+                <label for="userId" class="sr-only">请输入用户名</label>
+                <input type="text" id="userId" class="form-control" placeholder="请输入用户名">
+                <label for="passWord" class="sr-only">请输入密码</label>
+                <input type="password" id="passWord" class="form-control" placeholder="请输入密码">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="记住密码">
+                        记住密码
+                    </label>
+                    <a href="#" class="forget">忘记密码</a>
+                </div>
+                <button id="loginButton" class="btn btn-default btn-primary" type="button">登录</button>
+                <button class="btn btn-default btn-info reset" type="reset">重置</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

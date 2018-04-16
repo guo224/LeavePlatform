@@ -24,5 +24,10 @@
         <include refid="userColumns"/>
         FROM user WHERE user_id=#{userId}
     </select>
+    <select id="getAllTeacher" resultMap="UserMap">
+        SELECT
+        <include refid = "userColumns"/>
+        FROM user WHERE user_type = 1;
+    </select>
 
 </mapper>

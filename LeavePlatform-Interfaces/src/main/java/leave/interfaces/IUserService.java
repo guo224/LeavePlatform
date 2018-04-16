@@ -2,6 +2,8 @@ package leave.interfaces;
 
 import leave.model.object.User;
 
+import java.util.List;
+
 /**
  * Created by 白嘿嘿黑 on 2018/3/28.
  */
@@ -15,4 +17,5 @@ public interface IUserService {
     User getUserByUserId(String userId);
 
     String login(String userId,String passwWord);
+
 }

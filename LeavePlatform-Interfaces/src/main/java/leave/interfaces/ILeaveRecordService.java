@@ -11,5 +11,15 @@ public interface ILeaveRecordService {
      *  @param leaveRecord 请假用户实体
      **/
     void insert(LeaveRecord leaveRecord);
+
+    /**
+     * 提交请假
+     * @param userId
+     * @param startTime
+     * @param endTime
+     * @param submitId
+     * @return
+     */
+    String submitLeave(String userId, String startTime, String endTime, String submitId);
 }
                                                   
