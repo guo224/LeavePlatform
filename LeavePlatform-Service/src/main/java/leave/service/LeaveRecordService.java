@@ -34,7 +34,7 @@ public class LeaveRecordService implements ILeaveRecordService {
             Date beginTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(startTime);
             Date endTime1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(endTime);
             LeaveRecord leaveRecord = new LeaveRecord();
-            leaveRecord.setId("2385298");
+            leaveRecord.setId("23852982134");
             leaveRecord.setUserId(userId);
             leaveRecord.setStatus(1);
             leaveRecord.setStartTime(beginTime);

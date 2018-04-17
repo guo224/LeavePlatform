@@ -36,8 +36,7 @@ $(document).ready(function(){
             }
         })
     } )
-
-    $("#teacherList").click(function(){
+    $(selector).change(function(){
         $.ajax({
                 type:"Post",
                 url:"/user/getAllTeacher",

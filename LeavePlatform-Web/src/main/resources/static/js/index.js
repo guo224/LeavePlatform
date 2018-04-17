@@ -9,4 +9,5 @@ $(document).ready(function(){
     // alert(userName);
     const userType = loginInfo.userType;
     $("#currentUserName").text(userName);
+    $("#currentUserName1").text(userName);
 });

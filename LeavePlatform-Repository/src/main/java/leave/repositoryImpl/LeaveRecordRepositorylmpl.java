@@ -26,6 +26,7 @@ public class LeaveRecordRepositorylmpl implements LeaveRecordRepository{
         return leaveRecordMapper.insert(leaveRecord);
     }
 
+
     @Override
     public int update(LeaveRecord entity) {
         return 0;
