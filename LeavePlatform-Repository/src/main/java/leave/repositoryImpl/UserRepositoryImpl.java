@@ -1,5 +1,7 @@
 package leave.repositoryImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import leave.mapper.UserMapper;
 import leave.model.object.User;
 import leave.repository.UserRepository;
@@ -42,6 +44,16 @@ public class UserRepositoryImpl implements UserRepository {
     public User getUserByUserId(String userId) {
       User user = userMapper.getUserByUserId(userId);
       return user;
+    }
+
+    @Override
+    public PageInfo<User> searchTeacher(final String pageNum, final String pageSize){
+        PageHelper.startPage(Integer.valueOf(pageNum),Integer.valueOf(pageSize));
+        List<User> list = userMapper.getAllTeacher();
+        if(null == list){
+            return null;
+        }
+        return new PageInfo<>(list);
     }
 
     @Override

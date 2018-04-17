@@ -18,10 +18,10 @@ public class userTest extends TestBase {
     @Test
     public void tesi1(){
         User user = new User();
-    user.setId("12237");
-    user.setUserId("12344343");
-    user.setName("岳耀博");
-    user.setStudentCode("1");
+    user.setId("12237345");
+    user.setUserId("123443343");
+    user.setName("岳耀博1");
+    user.setStudentCode("12");
     user.setSex(1);
     user.setUserType(1);
     user.setMobileNum("15662501839");

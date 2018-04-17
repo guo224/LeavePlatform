@@ -1,6 +1,7 @@
 package leave.repository;
 
 
+import com.github.pagehelper.PageInfo;
 import leave.model.object.User;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public interface UserRepository extends BaseRepository<User>{
 
     User getUserByUserId(String userId);
+    PageInfo<User> searchTeacher(String pageNum, String pageSize);
 
     List<User> getAllTeacher();
 

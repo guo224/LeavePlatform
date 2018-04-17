@@ -11,12 +11,8 @@ $(document).ready(function() {
         mainClass: 'my-mfp-zoom-in'
     });
     $("#loginButton").click(function () {
-        alert("222");
         const userId = $('#userId').val();
         const passWord = $('#passWord').val();
-        alert(userId);
-        alert(passWord);
-
         if (userId === '') {
             alert("用户名不能为空");
             return false;
@@ -25,7 +21,6 @@ $(document).ready(function() {
             alert("密码不能为空");
             return false;
         }
-        alert("444");
         $.ajax({
             type: "POST",
             url: '/user/login',

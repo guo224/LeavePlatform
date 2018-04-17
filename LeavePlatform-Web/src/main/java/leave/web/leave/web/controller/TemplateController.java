@@ -1,6 +1,10 @@
 package leave.web.leave.web.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
 import leave.interfaces.IUserService;
+import leave.model.object.User;
+import leave.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +17,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import javax.servlet.ServletContext;
+import java.util.List;
 
 
 /**
@@ -22,11 +27,13 @@ import javax.servlet.ServletContext;
 @RequestMapping(value = "")
 public class TemplateController {
     private TemplateEngine templateEngine;
+    private final UserRepository userRepository;
     final  private Logger logger = LoggerFactory.getLogger(this.getClass());
     private final IUserService iUserService;
     @Autowired
-    public TemplateController(final ServletContext servletContext, IUserService iUserService) {
+    public TemplateController(final ServletContext servletContext, UserRepository userRepository, IUserService iUserService) {
         super();
+        this.userRepository = userRepository;
         this.iUserService = iUserService;
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
         templateResolver.setTemplateMode(TemplateMode.HTML);
@@ -44,6 +51,10 @@ public class TemplateController {
     }
     @GetMapping(value = "index")
     public String getIndex(Model model) throws Exception {
+        PageInfo<User> pageInfo = userRepository.searchTeacher("0", "0");
+        List<User> campusList = pageInfo.getList();
+        logger.info(JSON.toJSONString(campusList));
+        model.addAttribute("campusList",campusList);
         return "index";
     }
     @GetMapping(value = "leave")

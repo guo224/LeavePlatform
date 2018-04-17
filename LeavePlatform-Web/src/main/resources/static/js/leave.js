@@ -38,7 +38,6 @@ $(document).ready(function(){
     } )
 
     $("#teacherList").click(function(){
-        alert("1111")
         $.ajax({
                 type:"Post",
                 url:"/user/getAllTeacher",
