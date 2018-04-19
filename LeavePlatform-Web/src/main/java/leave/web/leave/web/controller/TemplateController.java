@@ -3,7 +3,9 @@ package leave.web.leave.web.controller;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 import leave.interfaces.IUserService;
+import leave.model.object.LeaveRecord;
 import leave.model.object.User;
+import leave.repository.LeaveRecordRepository;
 import leave.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,12 +30,14 @@ import java.util.List;
 public class TemplateController {
     private TemplateEngine templateEngine;
     private final UserRepository userRepository;
+    private final LeaveRecordRepository leaveRecordRepository;
     final  private Logger logger = LoggerFactory.getLogger(this.getClass());
     private final IUserService iUserService;
     @Autowired
-    public TemplateController(final ServletContext servletContext, UserRepository userRepository, IUserService iUserService) {
+    public TemplateController(final ServletContext servletContext, UserRepository userRepository, LeaveRecordRepository leaveRecordRepository, IUserService iUserService) {
         super();
         this.userRepository = userRepository;
+        this.leaveRecordRepository = leaveRecordRepository;
         this.iUserService = iUserService;
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
         templateResolver.setTemplateMode(TemplateMode.HTML);

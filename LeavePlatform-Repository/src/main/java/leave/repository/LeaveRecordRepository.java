@@ -1,5 +1,6 @@
 package leave.repository;
 
+import com.github.pagehelper.PageInfo;
 import leave.model.object.LeaveRecord;
 
 /**
@@ -7,4 +8,5 @@ import leave.model.object.LeaveRecord;
  */
 public interface LeaveRecordRepository extends BaseRepository<LeaveRecord> {
 
+    PageInfo<LeaveRecord> getLeaveRecord(String userId, String pageNum, String pageSize);
 }

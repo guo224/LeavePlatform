@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#submitButton").click(function(){
+    $("#submitLeave").click(function(){
         const cookie = getCookie("loginInfo")
         if("undefined" == typeof(cookie)){
             location.href = "/";
@@ -8,7 +8,7 @@ $(document).ready(function(){
         const  userId = loginInfo.id;
         const startTime = $('#startTime').val();
         const endTime = $('#endTime').val();
-        const submitId = $('#submitId').val();
+        const submitId = $('#teacherList').val();
         if (startTime === '') {
             alert("开始时间不能为空");
             return false;
@@ -36,19 +36,6 @@ $(document).ready(function(){
             }
         })
     } )
-    $(selector).change(function(){
-        $.ajax({
-                type:"Post",
-                url:"/user/getAllTeacher",
-                dataType:"json",
-                data:{
-
-                },
-            success : function(returnInfo){
-                setTeacherList(returnInfo);
-            }
-            })
-    })
 });
     function submit(returnInfo) {
         if (returnInfo.result === true && returnInfo.code === 30) {

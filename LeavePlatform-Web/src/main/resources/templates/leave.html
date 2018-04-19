@@ -17,6 +17,7 @@
     <script type="text/javascript" src="../static/js/cookie.js" th:src="@{/js/cookie.js}"></script>
     <script type="text/javascript" src="../static/js/login.js" th:src="@{/js/login.js}"></script>
     <script type="text/javascript" src="../static/js/leave.js" th:src="@{/js/leave.js}"></script>
+    <script type="text/javascript" src="../static/js/page.js" th:src="@{/js/page.js}"></script>
     <link href="css/popup-box.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/style.css" rel='stylesheet' type='text/css' />
 
@@ -45,14 +46,14 @@
                                        aria-haspopup="true" aria-expanded="false">请假<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">申请请假</a></li>
-                                        <li><a href="college.html" th:href="@{/college}">请假记录</a></li>
+                                        <li><a href="leave.html" th:href="@{/leave}">请假记录</a></li>
                                         <!--<li><a href="dorm.html" th:href="@{/dorm}">宿舍信息</a></li>-->
                                         <!--<li><a href="student.html" th:href="@{/student}">学生信息</a></li>-->
 
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    <a Style="display: none" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                        aria-haspopup="true" aria-expanded="false">销假<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="campus.html" th:href="@{/campus}">申请销假</a></li>
@@ -110,7 +111,7 @@
                         </th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="leaveList">
                     <tr th:each="campus : ${campusList}">
                         <td th:text="${campus.id}"></td>
                         <td th:text="${campus.name}"></td>

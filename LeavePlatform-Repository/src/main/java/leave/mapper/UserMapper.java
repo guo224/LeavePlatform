@@ -13,6 +13,8 @@ import java.util.List;
 @Mapper
 public interface UserMapper extends MyBaseMapper<User> {
     User getUserByUserId(@Param("userId")String userId);
+
+
     List<User> getAllTeacher();
 
 }

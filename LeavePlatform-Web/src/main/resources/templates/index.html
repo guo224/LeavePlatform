@@ -8,6 +8,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
+
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <script type="text/javascript" src="../static/js/jquery.cookie.js" th:src="@{/js/jquery.cookie.js}"></script>
@@ -45,7 +46,7 @@
                                        aria-haspopup="true" aria-expanded="false">请假<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">申请请假</a></li>
-                                        <li><a href="college.html" th:href="@{/college}">请假记录</a></li>
+                                        <li><a href="leave.html" th:href="@{/leave}">请假记录</a></li>
                                         <!--<li><a href="dorm.html" th:href="@{/dorm}">宿舍信息</a></li>-->
                                         <!--<li><a href="student.html" th:href="@{/student}">学生信息</a></li>-->
 
@@ -140,11 +141,11 @@
             <input type="text" id="endTime" class="form-control" placeholder="结束时间">
             <br><label>审核人</label><select id = "teacherList"  name = "teacherList" class = "form-control">
                 <option value = "">选择老师</option>
-                <option th:each="campus :${campusList}" th:text ="${campus.name}"
-                th:value="${campus.id}" th:selected="(${campusId} == ${campus.id})"></option>
+                <option th:each="campus : ${campusList}" th:text ="${campus.name}"
+                th:value="${campus.id}"></option>
             </select>
             <input type="text" id="submitId" class="form-control" placeholder="审核人Id">
-            <button id="submitButton" class="btn btn-default btn-primary" type="button">登录</button>
+            <button id="submitLeave" class="btn btn-default btn-primary" type="button">登录</button>
             <button class="btn btn-default btn-info reset" type="reset">重置</button>
             </form>
             </div>

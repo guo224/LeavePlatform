@@ -22,10 +22,22 @@ public class LeaveRecord {
      *状态
      */
     private Integer status;
+    private String name;//姓名
     //请假开始时间
     private Date startTime;
     //请假结束时间
     private Date endTime;
+
+    public String getStartTime1() {
+        return startTime1;
+    }
+
+    public void setStartTime1(String startTime1) {
+        this.startTime1 = startTime1;
+    }
+
+    private String startTime1;
+
 
     /**
      * 审批人Id
@@ -44,6 +56,13 @@ public class LeaveRecord {
      *是否删除
      */
     private Integer isDelete;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getSubmitId() {
         return submitId;

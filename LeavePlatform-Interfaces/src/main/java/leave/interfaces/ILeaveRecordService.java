@@ -21,5 +21,7 @@ public interface ILeaveRecordService {
      * @return
      */
     String submitLeave(String userId, String startTime, String endTime, String submitId);
+
+    String getLeaveRecord(String userId, String pageNum, String pageSize);
 }
                                                   

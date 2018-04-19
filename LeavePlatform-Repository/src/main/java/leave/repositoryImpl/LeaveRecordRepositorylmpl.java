@@ -1,9 +1,13 @@
 package leave.repositoryImpl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import leave.mapper.LeaveRecordMapper;
 import leave.model.object.LeaveRecord;
 import leave.repository.LeaveRecordRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by 白嘿嘿黑 on 2018/3/28.
@@ -26,7 +30,12 @@ public class LeaveRecordRepositorylmpl implements LeaveRecordRepository{
         return leaveRecordMapper.insert(leaveRecord);
     }
 
-
+    @Override
+    public PageInfo<LeaveRecord> getLeaveRecord(String userId,String pageNum,String pageSize){
+        PageHelper.startPage(Integer.valueOf(pageNum),Integer.valueOf(pageSize));
+        List<LeaveRecord> list = leaveRecordMapper.getLeaveRecord(userId);
+        return new PageInfo<>(list);
+    }
     @Override
     public int update(LeaveRecord entity) {
         return 0;

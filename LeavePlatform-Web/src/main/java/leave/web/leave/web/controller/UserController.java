@@ -1,6 +1,7 @@
 package leave.web.leave.web.controller;
 
 
+import com.github.pagehelper.PageInfo;
 import leave.interfaces.ILeaveRecordService;
 import leave.model.object.LeaveRecord;
 import leave.model.object.User;
@@ -33,12 +34,20 @@ public class UserController {
         return userService.login(userId,passWord);
     }
     @RequestMapping(value = "submitLeave",method = RequestMethod.POST)
-        public String submitLeave(@RequestParam("userId")String userId,@RequestParam("startTime")String startTime,@RequestParam("endTime")String endTime,@RequestParam("submitId")String submitId) {
+    public String submitLeave(@RequestParam("userId")String userId,@RequestParam("startTime")String startTime,@RequestParam("endTime")String endTime,@RequestParam("submitId")String submitId) {
         return iLeaveRecordService.submitLeave(userId,startTime,endTime,submitId);
     }
     @RequestMapping(value = "getAllTeacher",method = RequestMethod.POST)
     public String getAllTeacher(){
         return userService.getAllTeacher();
     }
+
+
+    @RequestMapping(value = "getLeaveRecord",method = RequestMethod.POST)
+    public String getLeaveRecord(@RequestParam("userId") String userId) {
+        logger.info(iLeaveRecordService.getLeaveRecord(userId, null, null));
+        return iLeaveRecordService.getLeaveRecord(userId, null, null);
+    }
+
 
 }
