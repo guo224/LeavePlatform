@@ -9,4 +9,6 @@ import leave.model.object.LeaveRecord;
 public interface LeaveRecordRepository extends BaseRepository<LeaveRecord> {
 
     PageInfo<LeaveRecord> getLeaveRecord(String userId, String pageNum, String pageSize);
+
+    boolean revokeLeave(String leaveId);
 }

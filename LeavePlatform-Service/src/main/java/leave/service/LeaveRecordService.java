@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by 白嘿嘿黑 on 2018/3/28.
+ * Created by yyb on 2018/3/28.
  */
 @Service
 public class LeaveRecordService implements ILeaveRecordService {
@@ -51,6 +51,14 @@ public class LeaveRecordService implements ILeaveRecordService {
             return BaseReturn.getErrorMessage("程序错误");
         }
     }
+    @Override
+    public String revokeLeave(String leaveId){
+        if(leaveRecordRepository.revokeLeave(leaveId)){
+
+           return BaseReturn.getNormalMessage(null);
+        }
+        return BaseReturn.getErrorMessage("添加失败");
+    }
 
     @Override
     public String getLeaveRecord(String userId,String pageNum,String pageSize){
@@ -71,7 +79,6 @@ public class LeaveRecordService implements ILeaveRecordService {
                 leaveRecord.setName("无姓名");
             }
         }
-
         return BaseReturn.getNormalMessage(list);
     }
     private LeaveRecord studentLeaveApprove(String userId, String startTime, String endTime, String submitId) throws ParseException {

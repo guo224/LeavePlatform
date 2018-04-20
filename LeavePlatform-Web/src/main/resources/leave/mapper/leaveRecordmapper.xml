@@ -27,6 +27,9 @@
     </where>
     ORDER BY update_time DESC
 </select>
+    <update id="revokeLeave" parameterType="String">
+        update leaverecord SET Is_delete = 1,update_time=now() WHERE id =#{id}
+    </update>
 
 
 </mapper>

@@ -13,4 +13,6 @@ import java.util.List;
 @Mapper
 public interface LeaveRecordMapper extends MyBaseMapper<LeaveRecord> {
     List<LeaveRecord> getLeaveRecord(@Param("userId")String userId);
+
+    int revokeLeave(@Param("id") String id);
 }

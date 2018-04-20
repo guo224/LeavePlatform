@@ -25,4 +25,8 @@ public class leaveRecordTest extends TestBase {
         leaveRecord.setIsDelete(0);
         iLeaveRecordService.insert(leaveRecord);
     }
+    @Test
+    public void  test2(){
+        iLeaveRecordService.revokeLeave("2345");
+    }
 }

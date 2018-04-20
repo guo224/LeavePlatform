@@ -3,10 +3,8 @@ $(document).ready(function(){
         if ("undefined" == typeof(cookie)) {
             location.href = "/";
         }
-        alert("111111")
         const loginInfo = JSON.parse(cookie);
         const userId = loginInfo.id;
-        alert("22222")
         $.ajax({
             type: "post",
             url: "user/getLeaveRecord",
@@ -18,7 +16,6 @@ $(document).ready(function(){
                 getleaveRecord(returnInfo);
             }
         })
-    alert("3333");
 });
 function getleaveRecord(returnInfo){
 
@@ -30,11 +27,42 @@ function getleaveRecord(returnInfo){
     // var list1 =list.list;
     for (i in list) {
         $('#leaveList').append("<tr>");
-        $('#leaveList').append("<td>" +  list[i].id + "</td>");
+        $('#leaveList').append("<td>" +  list[i].userId + "</td>");
         $('#leaveList').append("<td>" +  list[i].name + "</td>");
-        $('#leaveList').append("<td>" +  list[i].startTime1 + "</td>");
+        $('#leaveList').append("<td>" +  list[i].startTime + "</td>");
         $('#leaveList').append("<td>" +  list[i].endTime + "</td>");
-        $('#leaveList').append("<td>" +  list[i].status + "</td>");
+        if(list[i].status == 1){
+            const io = list[i].userId;
+            $('#leaveList').append("<td id='leaveId' class='btn btn-default btn-info'>"+  "审批中" + "</td>")
+            $('#leaveList').append("<button id='revokeLeave' class='button'>"+ "撤销" + "</button>")
+        }else if(list[i].status == 2){
+            $('#leaveList').append("<td>" +  "假期结束" + "</td>");
+            $('#leaveList').append("<button>" + "申请销假" +"</button>")
+        }else if(list[i].status == 3){
+            $('#leaveList').append("<td>" +  "销假中" + "</td>");
+            $('#leaveList').append("<button>" + "撤销" +"</button>")
+        }else if(list[i].status == 4){
+            $('#leaveList').append("<td>" +  "销假完成" + "</td>");
+        }
         $('#leaveList').append("</tr>");
     }
+}
+function revokeLeave() {
+    const leaveId = $('#leaveId').val();
+    if (leaveId === '') {
+        alert("用户名不能为空");
+        return false;
+    }
+    $.ajax({
+        type: "post",
+        url: "leave/revokeLeave",
+        data: {
+            leaveId: leaveId,
+        },
+        dataType: "json",
+        success: function (returnInfo) {
+            alert("撤销成功");
+        }
+    })
+
 }

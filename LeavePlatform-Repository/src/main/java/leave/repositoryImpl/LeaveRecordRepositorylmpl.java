@@ -36,6 +36,13 @@ public class LeaveRecordRepositorylmpl implements LeaveRecordRepository{
         List<LeaveRecord> list = leaveRecordMapper.getLeaveRecord(userId);
         return new PageInfo<>(list);
     }
+
+    @Override
+    public boolean revokeLeave(String leaveId) {
+        int num = leaveRecordMapper.revokeLeave(leaveId);
+       return num>0;
+    }
+
     @Override
     public int update(LeaveRecord entity) {
         return 0;

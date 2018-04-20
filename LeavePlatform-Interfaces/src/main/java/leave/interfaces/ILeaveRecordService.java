@@ -22,6 +22,14 @@ public interface ILeaveRecordService {
      */
     String submitLeave(String userId, String startTime, String endTime, String submitId);
 
+    /**
+     * 撤销请假
+     * @param leaveId
+     * @return
+     */
+
+    String revokeLeave(String leaveId);
+
     String getLeaveRecord(String userId, String pageNum, String pageSize);
 }
                                                   
