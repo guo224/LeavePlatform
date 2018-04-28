@@ -17,4 +17,9 @@ public interface UserMapper extends MyBaseMapper<User> {
 
     List<User> getAllTeacher();
 
+    List<User> getAllStudent(@Param("userType") String userTyper);
+
+    User getUserById(@Param("id") String id);
+
+
 }

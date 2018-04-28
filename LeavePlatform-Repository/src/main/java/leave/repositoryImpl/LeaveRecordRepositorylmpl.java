@@ -38,11 +38,15 @@ public class LeaveRecordRepositorylmpl implements LeaveRecordRepository{
     }
 
     @Override
-    public boolean revokeLeave(String leaveId) {
-        int num = leaveRecordMapper.revokeLeave(leaveId);
+    public boolean revokeLeave(String leaveId,String status) {
+        int num = leaveRecordMapper.applyEndLeave(leaveId,status);
        return num>0;
     }
-
+    @Override
+    public boolean applyEndLeave(String leaveId, String status){
+        int num = leaveRecordMapper.applyEndLeave(leaveId,status);
+        return num>0;
+    }
     @Override
     public int update(LeaveRecord entity) {
         return 0;

@@ -15,4 +15,6 @@ public interface LeaveRecordMapper extends MyBaseMapper<LeaveRecord> {
     List<LeaveRecord> getLeaveRecord(@Param("userId")String userId);
 
     int revokeLeave(@Param("id") String id);
+
+    int applyEndLeave(@Param("id") String id,@Param("status") String status);
 }

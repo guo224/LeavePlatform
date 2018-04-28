@@ -53,9 +53,8 @@ public class LeaveRecordService implements ILeaveRecordService {
     }
     @Override
     public String revokeLeave(String leaveId){
-        if(leaveRecordRepository.revokeLeave(leaveId)){
-
-           return BaseReturn.getNormalMessage(null);
+        if(leaveRecordRepository.revokeLeave(leaveId,"8")){
+           return BaseReturn.getNormalMessage(1);
         }
         return BaseReturn.getErrorMessage("添加失败");
     }
@@ -80,6 +79,15 @@ public class LeaveRecordService implements ILeaveRecordService {
             }
         }
         return BaseReturn.getNormalMessage(list);
+    }
+
+    @Override
+    public String applyEndLeave(String leaveId, String status){
+        if(leaveRecordRepository.applyEndLeave(leaveId,status)){
+            return BaseReturn.getNormalMessage(1);
+        }
+        return BaseReturn.getErrorMessage("申请销假失败");
+
     }
     private LeaveRecord studentLeaveApprove(String userId, String startTime, String endTime, String submitId) throws ParseException {
         Date beginTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(startTime);

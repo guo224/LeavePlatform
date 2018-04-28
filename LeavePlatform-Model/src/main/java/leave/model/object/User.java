@@ -27,6 +27,21 @@ public class User {
     private String password;
     //创建时间
     private Date createTime;
+    private Date updateTime;
+
+    //是否删除 0正常 1删除
+    private Integer isDelete;
+
+    private String objectId;
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -34,11 +49,6 @@ public class User {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
-
-    private Date updateTime;
-
-    //是否删除 0正常 1删除
-    private Integer isDelete;
     public String getId() {
         return id;
     }

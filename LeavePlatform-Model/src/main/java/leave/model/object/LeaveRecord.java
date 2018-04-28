@@ -28,13 +28,6 @@ public class LeaveRecord {
     //请假结束时间
     private Date endTime;
 
-    public String getStartTime1() {
-        return startTime1;
-    }
-
-    public void setStartTime1(String startTime1) {
-        this.startTime1 = startTime1;
-    }
 
     private String startTime1;
 
@@ -56,6 +49,15 @@ public class LeaveRecord {
      *是否删除
      */
     private Integer isDelete;
+
+    public String getStartTime1() {
+        return startTime1;
+    }
+
+    public void setStartTime1(String startTime1) {
+        this.startTime1 = startTime1;
+    }
+
     public String getName() {
         return name;
     }

@@ -13,6 +13,10 @@ public interface UserRepository extends BaseRepository<User>{
 
     User getUserByUserId(String userId);
 
+    User getUserById(String id);
+
+    PageInfo<User> getAllUserType(String userType, String pageNum, String pageSize);
+
     PageInfo<User> searchTeacher(String pageNum, String pageSize);
 
     List<User> getAllTeacher();

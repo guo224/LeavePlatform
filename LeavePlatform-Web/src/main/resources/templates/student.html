@@ -106,7 +106,7 @@
                             姓名
                         </th>
                         <th>
-                            请假时间
+                            学院
                         </th>
                         <th>
                             状态
@@ -114,30 +114,44 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="leaveRecord : ${LeaveRecordList}">
-                        <td th:text="${leaveRecord.userId}"></td>
-                        <td th:text="${leaveRecord.name}"></td>
-                        <td th:text="${leaveRecord.startTime} + '--' +${leaveRecord.endTime}"></td>
-                        <!--<td th:text="${leaveRecord.endTime}"></td>-->
-                        <td th:if="${leaveRecord.status} == 1">审批中  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 1">撤销</button></td>
-                        <td th:if="${leaveRecord.status} == 2">审批中  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 2">撤销</button></td>
-                        <td th:if="${leaveRecord.status} == 3">申请拒绝  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 3">查看详情</button></td>
-                        <!--<button class="" th:if="${leaveRecord.status} == 1">撤销</button>-->
-                        <td th:if="${leaveRecord.status} == 4">假期中  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 4">申请销假</button></td>
-                        <td th:if="${leaveRecord.status} == 5">假期结束  <button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 5">申请销假</button></td>
-                        <!--<button th:if="${leaveRecord.status} == 2">申请销假</button>-->
-                        <td th:if="${leaveRecord.status} == 6">销假中 <button th:value="${leaveRecord.id}" onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 6">撤销</button></td>
-                        <td th:if="${leaveRecord.status} == 7">销假拒绝  <button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 7">申请销假</button><button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 7">查看详情</button></td>
-                        <td th:if="${leaveRecord.status} == 8">撤销完成  <button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 8">申请请假</button><button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 8">申请销假</button></td>
-                        <!--<button th:if="${leaveRecord.status} == 3">撤销</button>-->
-                         <td th:if="${leaveRecord.status} == 9"> 销假完成</td>
-
+                    <tr th:each="student : ${studentList}">
+                        <td th:text="${student.userId}"></td>
+                        <td th:text="${student.name}"></td>
+                        <td>
+                        <a id = "id" class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog" th:value="${student.userId}">修改</a>
+                        <button class="book popup-with-zoom-anim button-isi zoomIn animated" id = "delete" th:value="${student.userId}" onclick="popup(this.value)">删除</button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="pop-up">
-                <div id="small-dialog" class="mfp-hide book-form"></div>
+                <div id="small-dialog" class="mfp-hide book-form">
+                    <h3 class="sub-head-w3-agileits">Sign Up</h3>
+                    <form action="#" method="post">
+                        <legend>添加学生</legend>
+                        <label for="userId" class="sr-only">账号</label>
+                        <input type="text" id="userId" class="form-control" placeholder="" value="">
+                        <label for="passWord" class="sr-only">密码</label>
+                        <input type="text" id="passWord" class="form-control" placeholder="密码">
+                        <label for="name" class="sr-only">姓名</label>
+                        <input type="text" id="name" class="form-control" placeholder="姓名">
+                        <label for="sex" class="sr-only">性别</label>
+                        <select id = "sex" class = "form-control">
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                        <label for="mobile" class="sr-only">手机号</label>
+                        <input type="text" id="mobile" class="form-control" placeholder="手机号">
+                        <br><label>审核人</label><select id = "teacherId"  name = "teacherList" class = "form-control">
+                        <option value = "">选择老师</option>
+                        <option th:each="campus : ${campusList}" th:text ="${campus.name}"
+                                th:value="${campus.id}"></option>
+                    </select>
+                        <button id="updateStudent" class="btn btn-default btn-primary" type="button">修改</button>
+                        <button class="btn btn-default btn-info reset" type="reset">重置</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

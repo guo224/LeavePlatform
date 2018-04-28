@@ -14,8 +14,11 @@ public interface IUserService {
     **/
     void insert(User user);
 
+    void insertStudent(String userId, String name, String studentCode, String userType, String sex, String mobileNum, String passWord, String objectId);
+
     User getUserByUserId(String userId);
 
     String login(String userId,String passwWord);
 
+    String getUserById(String id);
 }

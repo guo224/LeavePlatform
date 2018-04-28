@@ -14,6 +14,7 @@
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
         <result property="isDelete" column="Is_delete"/>
+        <result property="objectId" column="object_id"/>
     </resultMap>
 
     <sql id="userColumns">
@@ -23,6 +24,17 @@
         SELECT
         <include refid="userColumns"/>
         FROM user WHERE user_id=#{userId}
+    </select>
+    <select id="getUserById" resultMap="UserMap">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user WHERE id=#{id}
+    </select>
+    <select id="getAllStudent" resultMap="UserMap">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user WHERE user_type = #{userType}
+
     </select>
     <select id="getAllTeacher" resultMap="UserMap">
         SELECT

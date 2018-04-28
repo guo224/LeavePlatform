@@ -114,24 +114,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="leaveRecord : ${LeaveRecordList}">
-                        <td th:text="${leaveRecord.userId}"></td>
-                        <td th:text="${leaveRecord.name}"></td>
-                        <td th:text="${leaveRecord.startTime} + '--' +${leaveRecord.endTime}"></td>
-                        <!--<td th:text="${leaveRecord.endTime}"></td>-->
-                        <td th:if="${leaveRecord.status} == 1">审批中  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 1">撤销</button></td>
-                        <td th:if="${leaveRecord.status} == 2">审批中  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 2">撤销</button></td>
-                        <td th:if="${leaveRecord.status} == 3">申请拒绝  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 3">查看详情</button></td>
-                        <!--<button class="" th:if="${leaveRecord.status} == 1">撤销</button>-->
-                        <td th:if="${leaveRecord.status} == 4">假期中  <button th:value="${leaveRecord.id}"  onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 4">申请销假</button></td>
-                        <td th:if="${leaveRecord.status} == 5">假期结束  <button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 5">申请销假</button></td>
-                        <!--<button th:if="${leaveRecord.status} == 2">申请销假</button>-->
-                        <td th:if="${leaveRecord.status} == 6">销假中 <button th:value="${leaveRecord.id}" onclick="revokeLeave(this.value)" th:if="${leaveRecord.status} == 6">撤销</button></td>
-                        <td th:if="${leaveRecord.status} == 7">销假拒绝  <button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 7">申请销假</button><button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 7">查看详情</button></td>
-                        <td th:if="${leaveRecord.status} == 8">撤销完成  <button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 8">申请请假</button><button th:value="${leaveRecord.id}" onclick="applyEndLeave(this.value)" th:if="${leaveRecord.status} == 8">申请销假</button></td>
-                        <!--<button th:if="${leaveRecord.status} == 3">撤销</button>-->
-                         <td th:if="${leaveRecord.status} == 9"> 销假完成</td>
-
+                    <tr th:each="student : ${studentList}">
+                        <td th:text="${student.userId}"></td>
+                        <td th:text="${student.name}"></td>
                     </tr>
                     </tbody>
                 </table>

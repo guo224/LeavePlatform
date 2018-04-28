@@ -10,5 +10,7 @@ public interface LeaveRecordRepository extends BaseRepository<LeaveRecord> {
 
     PageInfo<LeaveRecord> getLeaveRecord(String userId, String pageNum, String pageSize);
 
-    boolean revokeLeave(String leaveId);
+    boolean revokeLeave(String leaveId,String status);
+
+    boolean applyEndLeave(String leaveId, String status);
 }

@@ -45,7 +45,16 @@ function logOut() {
 function login(returnInfo) {
     if (returnInfo.result === true && returnInfo.code === 30) {
         const userInfo = returnInfo.returnObject;
-        location.href = "/index";
+        const userType = userInfo.userType;
+        if(userType == 0) {
+            location.href = "/index";
+        }
+        if(userType == 1) {
+            location.href = "/teacherIndex";
+        }
+        if(userType == 2){
+            location.href = "/adminIndex";
+        }
         setCookie("loginInfo", JSON.stringify(userInfo));
     } else {
         alert("用户名或密码错误");

@@ -45,7 +45,20 @@ public class UserRepositoryImpl implements UserRepository {
       User user = userMapper.getUserByUserId(userId);
       return user;
     }
-
+    @Override
+    public User getUserById(String id) {
+        User user = userMapper.getUserById(id);
+        return user;
+    }
+    @Override
+    public PageInfo<User> getAllUserType(String userType,String pageNum,String pageSize){
+        PageHelper.startPage(Integer.valueOf(pageNum),Integer.valueOf(pageSize));
+        List<User> list = userMapper.getAllStudent(userType);
+        if(null == list){
+            return null;
+        }
+        return new PageInfo<>(list);
+    }
     @Override
     public PageInfo<User> searchTeacher(final String pageNum, final String pageSize){
         PageHelper.startPage(Integer.valueOf(pageNum),Integer.valueOf(pageSize));

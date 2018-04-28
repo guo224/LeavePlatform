@@ -31,5 +31,8 @@ public interface ILeaveRecordService {
     String revokeLeave(String leaveId);
 
     String getLeaveRecord(String userId, String pageNum, String pageSize);
+
+
+    String applyEndLeave(String leaveId, String status);
 }
                                                   

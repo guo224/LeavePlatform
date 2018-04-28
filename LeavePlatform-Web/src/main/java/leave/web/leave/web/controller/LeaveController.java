@@ -18,8 +18,14 @@ public class LeaveController {
 
     @RequestMapping(value = "revokeLeave",method = RequestMethod.POST)
     public String revokeLeave(@RequestParam("leaveId") String leaveId){
-        return iLeaveRecordService.revokeLeave(leaveId);
+        String ull =  iLeaveRecordService.revokeLeave(leaveId);
+        return "leave";
     }
 
+    @RequestMapping(value = "applyEndLeave",method = RequestMethod.POST)
+    public String applyEndLeave(@RequestParam("leaveId") String leaveId){
+        String ull =  iLeaveRecordService.applyEndLeave(leaveId,"6");
+        return "leave";
+    }
 
 }

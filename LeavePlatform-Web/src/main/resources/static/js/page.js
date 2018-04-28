@@ -15,40 +15,29 @@ $(document).ready(function(){
             success: function (returnInfo) {
                 getleaveRecord(returnInfo);
             }
-        })
+        });
+        $(".alert-block").click(function(){
+        alert("第一个第二个");
+    });
+
 });
-function getleaveRecord(returnInfo){
+function getleaveRecord(returnInfo) {
 
     if (returnInfo.result !== true || returnInfo.code !== 30) {
         return "";
     }
     var list = returnInfo.returnObject;
     debugger;
-    // var list1 =list.list;
+    $('#leaveRecord').append("<option>选择请假单</option>")
     for (i in list) {
-        $('#leaveList').append("<tr>");
-        $('#leaveList').append("<td>" +  list[i].userId + "</td>");
-        $('#leaveList').append("<td>" +  list[i].name + "</td>");
-        $('#leaveList').append("<td>" +  list[i].startTime + "</td>");
-        $('#leaveList').append("<td>" +  list[i].endTime + "</td>");
-        if(list[i].status == 1){
-            const io = list[i].userId;
-            $('#leaveList').append("<td id='leaveId' class='btn btn-default btn-info'>"+  "审批中" + "</td>")
-            $('#leaveList').append("<button id='revokeLeave' class='button'>"+ "撤销" + "</button>")
-        }else if(list[i].status == 2){
-            $('#leaveList').append("<td>" +  "假期结束" + "</td>");
-            $('#leaveList').append("<button>" + "申请销假" +"</button>")
-        }else if(list[i].status == 3){
-            $('#leaveList').append("<td>" +  "销假中" + "</td>");
-            $('#leaveList').append("<button>" + "撤销" +"</button>")
-        }else if(list[i].status == 4){
-            $('#leaveList').append("<td>" +  "销假完成" + "</td>");
-        }
-        $('#leaveList').append("</tr>");
+        $('#leaveRecord').append("<option>" + list[i].id + "</option>");
+        $('#leaveRecord').append("<option>" + list[i].name + "</option>");
+        $('#leaveRecord').append("<option>" + list[i].startTime + "</option>");
+        $('#leaveRecord').append("<option>" + list[i].endTime + "</option>");
     }
 }
-function revokeLeave() {
-    const leaveId = $('#leaveId').val();
+function revokeLeave(returnInfo) {
+    const leaveId = returnInfo;
     if (leaveId === '') {
         alert("用户名不能为空");
         return false;
@@ -59,10 +48,50 @@ function revokeLeave() {
         data: {
             leaveId: leaveId,
         },
-        dataType: "json",
-        success: function (returnInfo) {
-            alert("撤销成功");
+        success: function () {
+            alert("略略略略")
+            location.reload(false);
         }
     })
+    location.reload(true);
+}
+function applyEndLeave(returnInfo) {
+    alert("略略略略emmmm");
+    const leaveId = returnInfo;
+    if (leaveId === '') {
+        alert("用户名不能为空");
+        return false;
+    }
+    $.ajax({
+        type: "post",
+        url: "leave/applyEndLeave",
+        data: {
+            leaveId: leaveId,
+        },
+        success: function () {
+            alert("略略略略")
+            location.reload(false);
+        }
+    });
+    location.reload(true);
+}
+function popup(returnInfo){
+    const userId1 = returnInfo;
+    alert(userId1);
+    $.ajax({
+        type: "post",
+        url: "user/updateUser",
+        data: {
+            id: userId1,
+            isDelete :1
+        },
+        dataType: "json",
+        success: function (returnInfo) {
+            if (returnInfo.result === true && returnInfo.code === 30) {
+               alert("修改成功");
+            }
 
+        }
+
+    })
 }
